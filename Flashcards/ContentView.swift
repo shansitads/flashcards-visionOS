@@ -4,7 +4,6 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: FlashcardsViewModel
     @State private var selectedSet: FlashcardSet?
     @State private var showingAddSetSheet = false
-    @State private var showingAddCardSheet = false
     
     var body: some View {
         NavigationView {
@@ -30,12 +29,6 @@ struct ContentView: View {
             .sheet(isPresented: $showingAddSetSheet) {
                 AddSetView()
                     .environmentObject(viewModel)
-            }
-            .sheet(isPresented: $showingAddCardSheet) {
-                if let selectedSet = selectedSet {
-                    AddCardView(flashcardSet: selectedSet)
-                        .environmentObject(viewModel)
-                }
             }
         }
     }

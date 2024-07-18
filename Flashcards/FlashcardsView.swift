@@ -4,6 +4,7 @@ struct FlashcardsView: View {
     @EnvironmentObject var viewModel: FlashcardsViewModel
     @ObservedObject var flashcardSet: FlashcardSet
     @State private var showingAddCardSheet = false
+    @State private var showingReviewSheet = false
     
     var body: some View {
         VStack {
@@ -38,13 +39,22 @@ struct FlashcardsView: View {
             .navigationTitle(flashcardSet.name)
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: { showingAddCardSheet = true }) {
-                        Image(systemName: "plus")
+                    HStack {
+                        Button(action: { showingReviewSheet = true }) {
+                            Image(systemName: "play.circle")
+                        }
+                        Button(action: { showingAddCardSheet = true }) {
+                            Image(systemName: "plus")
+                        }
                     }
                 }
             }
             .sheet(isPresented: $showingAddCardSheet) {
                 AddCardView(flashcardSet: flashcardSet)
+                    .environmentObject(viewModel)
+            }
+            .sheet(isPresented: $showingReviewSheet) {
+                ReviewView(flashcardSet: flashcardSet)
                     .environmentObject(viewModel)
             }
         }

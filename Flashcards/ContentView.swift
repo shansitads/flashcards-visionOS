@@ -1,57 +1,42 @@
-//
-//  ContentView.swift
-//  Flashcards
-//
-//  Created by shansita-dev on 7/18/24.
-//
-
 import SwiftUI
-import RealityKit
-import RealityKitContent
 
 struct ContentView: View {
-
-    @State private var showImmersiveSpace = false
-    @State private var immersiveSpaceIsShown = false
-
-    @Environment(\.openImmersiveSpace) var openImmersiveSpace
-    @Environment(\.dismissImmersiveSpace) var dismissImmersiveSpace
-
+    @EnvironmentObject var viewModel: FlashcardsViewModel
+    @State private var selectedSet: FlashcardSet?
+    @State private var showingAddSetSheet = false
+    @State private var showingAddCardSheet = false
+    
     var body: some View {
-        VStack {
-            Model3D(named: "Scene", bundle: realityKitContentBundle)
-                .padding(.bottom, 50)
-
-            Text("Hello, world!")
-
-            Toggle("Show ImmersiveSpace", isOn: $showImmersiveSpace)
-                .font(.title)
-                .frame(width: 360)
-                .padding(24)
-                .glassBackgroundEffect()
-        }
-        .padding()
-        .onChange(of: showImmersiveSpace) { _, newValue in
-            Task {
-                if newValue {
-                    switch await openImmersiveSpace(id: "ImmersiveSpace") {
-                    case .opened:
-                        immersiveSpaceIsShown = true
-                    case .error, .userCancelled:
-                        fallthrough
-                    @unknown default:
-                        immersiveSpaceIsShown = false
-                        showImmersiveSpace = false
+        NavigationView {
+            List {
+                ForEach(viewModel.flashcardSets) { set in
+                    NavigationLink(destination: FlashcardsView(flashcardSet: set)) {
+                        Text(set.name)
                     }
-                } else if immersiveSpaceIsShown {
-                    await dismissImmersiveSpace()
-                    immersiveSpaceIsShown = false
+                }
+                .onDelete(perform: viewModel.deleteSet)
+            }
+            .navigationTitle("Flashcard Sets")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: { showingAddSetSheet = true }) {
+                        Image(systemName: "plus")
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
+                }
+            }
+            .sheet(isPresented: $showingAddSetSheet) {
+                AddSetView()
+                    .environmentObject(viewModel)
+            }
+            .sheet(isPresented: $showingAddCardSheet) {
+                if let selectedSet = selectedSet {
+                    AddCardView(flashcardSet: selectedSet)
+                        .environmentObject(viewModel)
                 }
             }
         }
     }
-}
-
-#Preview(windowStyle: .automatic) {
-    ContentView()
 }

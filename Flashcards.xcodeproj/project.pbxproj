@@ -13,6 +13,12 @@
 		64BDA83A2C4971E3000BC817 /* ImmersiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BDA8392C4971E3000BC817 /* ImmersiveView.swift */; };
 		64BDA83C2C4971E4000BC817 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BDA83B2C4971E4000BC817 /* Assets.xcassets */; };
 		64BDA83F2C4971E4000BC817 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64BDA83E2C4971E4000BC817 /* Preview Assets.xcassets */; };
+		64BDA8472C49720F000BC817 /* FlashcardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BDA8462C49720F000BC817 /* FlashcardsView.swift */; };
+		64BDA8492C49723A000BC817 /* AddSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BDA8482C49723A000BC817 /* AddSetView.swift */; };
+		64BDA84B2C49724A000BC817 /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BDA84A2C49724A000BC817 /* AddCardView.swift */; };
+		64BDA84D2C497261000BC817 /* FlashcardsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BDA84C2C497261000BC817 /* FlashcardsViewModel.swift */; };
+		64BDA84F2C497279000BC817 /* FlashcardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BDA84E2C497279000BC817 /* FlashcardSet.swift */; };
+		64BDA8512C49728D000BC817 /* Flashcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BDA8502C49728D000BC817 /* Flashcard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		64BDA83B2C4971E4000BC817 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64BDA83E2C4971E4000BC817 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		64BDA8402C4971E4000BC817 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64BDA8462C49720F000BC817 /* FlashcardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsView.swift; sourceTree = "<group>"; };
+		64BDA8482C49723A000BC817 /* AddSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSetView.swift; sourceTree = "<group>"; };
+		64BDA84A2C49724A000BC817 /* AddCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
+		64BDA84C2C497261000BC817 /* FlashcardsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardsViewModel.swift; sourceTree = "<group>"; };
+		64BDA84E2C497279000BC817 /* FlashcardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashcardSet.swift; sourceTree = "<group>"; };
+		64BDA8502C49728D000BC817 /* Flashcard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flashcard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,12 @@
 				64BDA83B2C4971E4000BC817 /* Assets.xcassets */,
 				64BDA8402C4971E4000BC817 /* Info.plist */,
 				64BDA83D2C4971E4000BC817 /* Preview Content */,
+				64BDA8462C49720F000BC817 /* FlashcardsView.swift */,
+				64BDA8482C49723A000BC817 /* AddSetView.swift */,
+				64BDA84A2C49724A000BC817 /* AddCardView.swift */,
+				64BDA84C2C497261000BC817 /* FlashcardsViewModel.swift */,
+				64BDA84E2C497279000BC817 /* FlashcardSet.swift */,
+				64BDA8502C49728D000BC817 /* Flashcard.swift */,
 			);
 			path = Flashcards;
 			sourceTree = "<group>";
@@ -158,7 +176,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				64BDA8382C4971E3000BC817 /* ContentView.swift in Sources */,
+				64BDA84F2C497279000BC817 /* FlashcardSet.swift in Sources */,
+				64BDA8472C49720F000BC817 /* FlashcardsView.swift in Sources */,
+				64BDA84B2C49724A000BC817 /* AddCardView.swift in Sources */,
 				64BDA8362C4971E3000BC817 /* FlashcardsApp.swift in Sources */,
+				64BDA8492C49723A000BC817 /* AddSetView.swift in Sources */,
+				64BDA8512C49728D000BC817 /* Flashcard.swift in Sources */,
+				64BDA84D2C497261000BC817 /* FlashcardsViewModel.swift in Sources */,
 				64BDA83A2C4971E3000BC817 /* ImmersiveView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
